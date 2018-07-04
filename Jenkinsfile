@@ -1,4 +1,5 @@
 pipeline {
+agent {
     
 stages {
         stage('Build') {
@@ -21,5 +22,6 @@ stages {
                 sh './jenkins/scripts/deliver.sh' 
             }
         }
-    }
+
+}    }
 }
