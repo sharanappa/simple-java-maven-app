@@ -1,32 +1,28 @@
-#!groovy
-
-node('localhost')  {
-agent any   
-stages {
+pipeline {
+    agent {
+             label ""
+        }
+    }
+    stages {
         stage('Build') {
             steps {
-                script {
-
-                   sh '/home/sharan/jenkins_maveen_example/simple-java-maven-app/jenkins/scripts/build.sh'
-             }
+                sh 'mvn -B -DskipTests clean package'
             }
-
         }
         stage('Test') {
             steps {
-                script {
-                    sh '/home/sharan/jenkins_maveen_example/simple-java-maven-app/jenkins/scripts/tesh.sh' 
-               }
-
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
             }
         }
         stage('Deliver') { 
             steps {
-               script {
-                sh '/home/sharan/jenkins_maveen_example/simple-java-maven-app/jenkins/scripts/deliver.sh'
-             }
+                sh './jenkins/scripts/deliver.sh' 
             }
         }
-
-}    
+    }
 }
