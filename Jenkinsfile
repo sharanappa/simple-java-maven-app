@@ -1,3 +1,5 @@
+#!groovy
+
 pipeline  {
 agent any    
 stages {
@@ -5,7 +7,7 @@ stages {
             steps {
                 script {
 
-                   sh ./jenkins/scripts/build.sh
+                   sh './jenkins/scripts/build.sh'
              }
             }
 
@@ -13,7 +15,7 @@ stages {
         stage('Test') {
             steps {
                 script {
-                    sh ./jenkins/scripts/tesh.sh 
+                    sh './jenkins/scripts/tesh.sh' 
                }
 
             }
@@ -21,7 +23,7 @@ stages {
         stage('Deliver') { 
             steps {
                script {
-                sh ./jenkins/scripts/deliver.sh 
+                sh './jenkins/scripts/deliver.sh'
              }
             }
         }
