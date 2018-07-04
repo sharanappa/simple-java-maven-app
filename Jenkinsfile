@@ -1,6 +1,4 @@
 pipeline  {
-
-agent any&lt;/code&gt;
     
 stages {
         stage('Build') {
