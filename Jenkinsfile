@@ -7,7 +7,7 @@ stages {
             steps {
                 script {
 
-                   sh './jenkins/scripts/build.sh'
+                   sh '/home/sharan/jenkins_maveen_example/simple-java-maven-app/jenkins/scripts/build.sh'
              }
             }
 
@@ -15,7 +15,7 @@ stages {
         stage('Test') {
             steps {
                 script {
-                    sh './jenkins/scripts/tesh.sh' 
+                    sh '/home/sharan/jenkins_maveen_example/simple-java-maven-app/jenkins/scripts/tesh.sh' 
                }
 
             }
@@ -23,7 +23,7 @@ stages {
         stage('Deliver') { 
             steps {
                script {
-                sh './jenkins/scripts/deliver.sh'
+                sh '/home/sharan/jenkins_maveen_example/simple-java-maven-app/jenkins/scripts/deliver.sh'
              }
             }
         }
