@@ -1,6 +1,6 @@
 #!groovy
 
-node('localhostt')  {
+node('localhost')  {
 agent any   
 stages {
         stage('Build') {
