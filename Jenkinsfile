@@ -3,17 +3,13 @@ agent any
 stages {
         stage('Build') {
             steps {
-                mvn -B -DskipTests clean package
+                   sh ./jenkins/scripts/build.sh
             }
+
         }
         stage('Test') {
             steps {
-                mvn test
-            }
-            post {
-                always {
-                    junit target/surefire-reports/*.xml
-                }
+                    sh ./jenkins/scripts/tesh.sh 
             }
         }
         stage('Deliver') { 
