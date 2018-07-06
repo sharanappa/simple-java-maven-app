@@ -1,16 +1,13 @@
-pipeline {
-    agent {
-             label ""
-        }
+node() {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh '/opt/maveen/bin/mvn clean package'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh '/opt/maveen/bin/mvn test'
             }
             post {
                 always {
