@@ -1,6 +1,6 @@
 node() {
         stage('Build') {
-                sh '/opt/maven/bin/mvn clean package'
+                sh '/opt/maven/bin/mvn clean compile package'
         }
         stage('Test') {
                 sh '/opt/maven/bin/mvn test'
